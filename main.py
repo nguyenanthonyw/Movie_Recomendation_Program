@@ -21,4 +21,32 @@ columns = ['Actors', 'Director', 'Genre', 'Title']
 
 print(df[columns].head(3))
 
+df[columns].isnull().values.any()
+
+#create function to combine values of the important columns
+
+def get_important_values(data):
+    important_features = []
+    for i in range(0,data.shape[0]):
+        important_features.append(data['Actors'][i]+' '+data['Director'][i] + ' '+data['Genre'][i]+' '+ data['Title'][i])
+
+    return important_features
+
+
+# Create a column to hold the combined strings
+df['important_features'] = get_important_values(df)
+
+#show data
+print(df[columns].head(3))
+
+
+#convert text to matirx of token counts
+
+cm = CountVectorizer().fit_transform(df['important_features'])
+
+#Get the cosine similarity matrix from the count matirx
+
+cs = cosine_similarity(cm)
+
+
 
