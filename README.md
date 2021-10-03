@@ -68,7 +68,7 @@ Required frame work
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/nguyenanthonyw/Faud-Detection-.git
+   git clone https://github.com/nguyenanthonyw/Movie_Recomendation_Program
    ```
 2. Install packages
    ```sh
